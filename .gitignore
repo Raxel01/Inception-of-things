@@ -1,0 +1,9 @@
+# Vagrant
+.vagrant/
+*.log
+
+# Vagrant boxes (these are large and can be re-downloaded)
+*.box
+
+# Vagrant environment files (may contain sensitive info)
+.env
