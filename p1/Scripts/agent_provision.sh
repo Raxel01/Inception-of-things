@@ -1,15 +1,12 @@
 # #!/bin/bash
 
-# CONTROLLER_URL = "http://$1:6443"
+CONTROLLER_IP=$1
+K3S_TOKEN=$(cat /vagrant/token_file 2>/dev/null) || K3S_TOKEN=''
 
-# # get the token from the machine of the controller
-# MY_K3S_TOKEN = ${curl -s $MY_K3S_URL}
+K3S_URL="https://${CONTROLLER_IP}:6443"
 
-# # and then run this line: 
-# curl -sfL https://get.k3s.io | K3S_URL=$CONTROLLER_URL K3S_TOKEN=$MY_K3S_TOKEN sh -
+sudo usermod -aG sudo vagrant
 
-# sudo systemctl enable k3s-agent
-# sudo systemctl start k3s-agent
+curl -sfL https://get.k3s.io | K3S_URL=$K3S_URL K3S_TOKEN=$K3S_TOKEN sh -
 
-# echo "========= K3s Agent joined the cluster ========"
-echo "############# End Agent Provision #############"
+echo "========= K3s Agent joined the cluster ========"

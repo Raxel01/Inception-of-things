@@ -7,3 +7,5 @@
 
 # Vagrant environment files (may contain sensitive info)
 .env
+
+token_file
