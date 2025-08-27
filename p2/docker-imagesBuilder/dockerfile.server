@@ -11,6 +11,6 @@ RUN chmod -R +r static/
 
 RUN go build server.go
 
-EXPOSE 8082
+EXPOSE 8081
 
 ENTRYPOINT ["bash", "entrypoint.sh"]

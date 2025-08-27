@@ -16,4 +16,4 @@ kubectl apply -f confs/Ingress.yaml
 
 
 echo "===========> K3s Controller  is  UP  < "
-echo "===========> End Controller Provision <"
+echo "===========> End Controller Provision "
