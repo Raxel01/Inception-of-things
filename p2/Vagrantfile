@@ -1,0 +1,22 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+MEMORY_CAPACITY = 512
+MEMORY_CAPACITY_AGENT = 1024
+
+RECOMMENDED_CPU = 1
+CONTROLLER_IP = "192.168.56.110"
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/jammy64"
+  config.vm.hostname = "abait-taS"
+
+  config.vm.provider "virtualBox" do |provider|
+    provider.name = "abait-taS"
+    provider.cpus = RECOMMENDED_CPU
+    provider.memory = MEMORY_CAPACITY
+  end
+
+  config.vm.provision :shell, name: "server_provision", path: "./scripts/server_provision.sh", args: [CONTROLLER_IP]
+  config.vm.network "private_network", ip: CONTROLLER_IP
+end

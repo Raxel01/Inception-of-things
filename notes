@@ -1,0 +1,108 @@
+start the tutoriel with Nana : 
+https://www.youtube.com/watch?v=s_o8dwzRlu4
+write notes on my book :)
+
+
+day 07/ targets :
+
+understand and begin part2
+and recognize what the situation require to implement as 
+kubernetes components !
+
+
+
+Type of Services:
+********* Cluster Ip: ***************    
+ is the default type that affected to any new created Service !
+stable Ip adress that route traffic to pods
+
+it''s accesible within the cluster network ! 
+cannot be accessed from outside the cluster [network]
+
+Cluster ip willl be used in the models of pods to pods communication !
+
+if a client within the cluster make a call to the service it's automatically load balanced to available p[outside]
+
+summary it'''s ClusterIP  is used for internal communication.
+
+create the service: kubectl create -f cluster-ip-service.yaml
+
+use cases:
+    internal communication
+    load balancing between pods
+    Service Discovery
+
+This type is not used when dealing with External communication !
+
+****TYPE2 : NODE PORT Service********
+        expose a service on a static port on each node in the cluster
+        so this can guarant external communication to the node from outside
+each nodes on the cluster will have as static port !
+
+trafiic can be directed to a specific pods on the cluster 
+
+negative things : that it does not provide an advanced Load balancing service
+
+this is a good choice when:
+
+    1- expose Service to the external network
+    2- if you don''t need the advanced Features of Load balancing !
+
+***************LOAD BALANCER**************
+it expose a service to the external network by distrubiting incoming traffic accroass multiple poads
+
+it proviude :
+    1- LOAD BALANCING
+    2- Service Discovery ! 
+The load balancer uses IP addresses from the cloud provider to route traffic to the service
+
+
+WHY I MAY NEED TO USE LOAD BALANCER:
+  1- Expose Service to the external network: by routing traffic to the pods of service
+
+  2-  Balance the load between multiple pods
+
+  3- Ensure High availibility !
+
+  4- Discover services : allowing acces to other Servicein the Cluster
+
+
+***********Ingress Technology ********************
+Allow you to expose multiple Services in a single IP address
+describe how traffic should be forwarded to the services in the Cluster
+
+use rule to route traffic to the appropriate service base on the URL
+
+path or hostname !
+
+expose multiple Services with on Load balancer or nodeport reducing the cost
+
+FEATURES : 
+                1- SSL termination
+                2- URL rewrites
+                3- authentication
+to have Ingress you should have ingress Controller installed
+understand : URIs, hostnames, paths, to route traffic to specific and dedied services !
+
+**********Init Containers: ********
+are used for pre Configuration to ensure a properly configured and initialized container
+before it start the main container !
+     ***  How They Work: ****
+1- kubectl run the init containers as they appeare in the file 
+startup Order
+on init container run at a time
+2- init containers run before the main container
+3- if the pods is restarted all the init container willl run again
+4- they are runned in the PENDING phase
+     *** Use cases ***
+1- Load and configure dependencies.
+2- create database schema
+3- warm up cash
+4- network configutaion
+5- git clone
+6- Security check
+7- acces to Secrets
+8- environment setup
+8- wait for a Service to start before the the main app starts !
+    *** Practical Exemples: ***
+

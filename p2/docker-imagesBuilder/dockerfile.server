@@ -1,0 +1,16 @@
+FROM golang:1.23-bullseye
+
+WORKDIR /server
+
+COPY . .
+
+
+RUN chmod +x ./entrypoint.sh
+
+RUN chmod -R +r static/
+
+RUN go build server.go
+
+EXPOSE 8082
+
+ENTRYPOINT ["bash", "entrypoint.sh"]

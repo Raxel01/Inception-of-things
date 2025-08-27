@@ -1,0 +1,73 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name : app1-deployment
+  labels:
+    app : app1
+    owner: abait-ta
+    project : Inception-of-things
+  annotations:
+    description : " application 1 setup"
+spec: 
+  replicas : 1
+  selector:
+    matchLabels:
+      app : app1
+  template:
+    metadata:
+      labels:
+        app: app1
+    spec:
+      containers:
+      - name  : app1container
+        image : canislupus0/appone:abaitta
+        ports:
+        - containerPort: 8080
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app2-deployment
+  labels:
+    app: app2
+    owner: abait-ta
+spec:
+  replicas: 3
+  selector:
+      matchLabels:
+        app : app2
+  template:
+    metadata:
+      labels:
+        app: app2
+    spec:
+      containers:
+      - name: apptwocontainer
+        image: canislupus0/apptwo:abaitta
+        ports:
+          - containerPort: 8081
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app3-deployment
+  labels:
+    app: app3
+    owner: abait-ta
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app3
+  template:
+      metadata:
+        labels:
+          app: app3
+      spec:
+        containers:
+        - name :  appthreecontainer
+          image  : canislupus0/appthree:abaitta
+          ports:
+            - containerPort: 8082

@@ -1,0 +1,20 @@
+networks:
+  NetworkService:
+    driver: bridge
+    name: Inception-net
+
+services:
+
+  server:
+    build:
+      context: .
+      dockerfile: dockerfile.server 
+    networks:
+      - NetworkService
+    image: appthree:abaitta
+    container_name: appthreeAbaitta
+    volumes:
+      - ./:/server
+    restart: always
+    ports:
+      - "8082:8080"

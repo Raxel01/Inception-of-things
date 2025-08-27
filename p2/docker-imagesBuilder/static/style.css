@@ -1,0 +1,65 @@
+body {
+    background-color: #f0f0f0;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    text-align: center;
+}
+
+.content {
+    padding: 20px;
+}
+
+.animated-header {
+    font-size: 2.5rem;
+    color: #007d9c;
+    margin-bottom: 40px;
+    animation: bounce-in 1s ease-out;
+}
+
+@keyframes bounce-in {
+    0% { transform: translateY(-50px); opacity: 0; }
+    50% { transform: translateY(10px); opacity: 1; }
+    100% { transform: translateY(0); }
+}
+
+.logo-container {
+    width: 250px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.gopher-logo {
+    width: 100%;
+    animation: translate-and-shadow 6s infinite ease-in-out;
+}
+
+/* Keyframes for the combined translation and shadow animation */
+@keyframes translate-and-shadow {
+    0%, 100% {
+        transform: translateY(0);
+        filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.4));
+    }
+    50% {
+        transform: translateY(-20px);
+        filter: drop-shadow(0 0 25px #ff6347); /* Example color */
+    }
+    60% {
+        filter: drop-shadow(0 0 25px #6495ed); /* Example color */
+    }
+    70% {
+        filter: drop-shadow(0 0 25px #ffd700); /* Example color */
+    }
+    80% {
+        filter: drop-shadow(0 0 25px #3cb371); /* Example color */
+    }
+    90% {
+        filter: drop-shadow(0 0 25px #ba55d3); /* Example color */
+    }
+}

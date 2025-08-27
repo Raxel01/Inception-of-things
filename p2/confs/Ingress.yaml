@@ -1,0 +1,36 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mainingress
+
+spec:
+  rules:
+  # Rule for app1.com
+  - host: app1.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: apponeservice
+            port:
+              number: 8080 
+  
+  # Rule for app2.com  
+  - host: app2.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: apptwoservice
+            port:
+              number: 8081  
+
+  defaultBackend:
+    service:
+      name: appthreeservice
+      port:
+        number: 8082
