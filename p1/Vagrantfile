@@ -1,14 +1,17 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-MEMORY_CAPACITY = 512
+# runing to an issue with The privider RTEXITCODE:
+# change the vmdk storage to goinfree.
+
+MEMORY_CAPACITY = 1024
 MEMORY_CAPACITY_AGENT = 1024
 
 RECOMMENDED_CPU = 1
 CONTROLLER_IP = "192.168.56.110"
 
 Vagrant.configure("2") do |conf|
-  conf.vm.box = "ubuntu/jammy64"
+  conf.vm.box = "bento/debian-13"
 
   conf.vm.define  "abait-taS" do |controller|
     controller.vm.hostname = "Server"
