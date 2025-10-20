@@ -1,5 +1,5 @@
-docker tag apptwo:abaitta canislupus0/apptwo:abaitta
+docker tag appthree:abaitta canislupus0/appthree:abaitta
 
 echo " *** First STEP is Finished *** "
 
-docker push canislupus0/apptwo:abaitta
+docker push canislupus0/appthree:abaitta

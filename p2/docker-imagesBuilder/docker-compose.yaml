@@ -11,10 +11,8 @@ services:
       dockerfile: dockerfile.server 
     networks:
       - NetworkService
-    image: apptwo:abaitta
-    container_name: apptwoAbaitta
+    image: appthree:abaitta
+    container_name: appthreeAbaitta
     volumes:
       - ./:/server
     restart: always
-    ports:
-      - "8081:8080"

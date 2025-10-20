@@ -21,7 +21,9 @@ spec:
       app : app2
   ports:
     - protocol: TCP
+      #port inside the cluster that other services/pods use to talk to your Service.
       port: 8081
+      # the port available on the container 
       targetPort: 8080
 
 ---

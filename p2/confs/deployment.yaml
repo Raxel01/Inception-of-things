@@ -10,9 +10,6 @@ metadata:
     description : " application 1 setup"
 spec: 
   replicas : 1
-  selector:
-    matchLabels:
-      app : app1
   template:
     metadata:
       labels:
@@ -23,6 +20,10 @@ spec:
         image : canislupus0/appone:abaitta
         ports:
         - containerPort: 8080
+  
+  selector:
+    matchLabels:
+      app : app1
 ---
 
 apiVersion: apps/v1
@@ -34,9 +35,6 @@ metadata:
     owner: abait-ta
 spec:
   replicas: 3
-  selector:
-      matchLabels:
-        app : app2
   template:
     metadata:
       labels:
@@ -47,6 +45,9 @@ spec:
         image: canislupus0/apptwo:abaitta
         ports:
           - containerPort: 8081
+  selector:
+      matchLabels:
+        app : app2
 ---
 
 apiVersion: apps/v1
@@ -58,9 +59,6 @@ metadata:
     owner: abait-ta
 spec:
   replicas: 1
-  selector:
-    matchLabels:
-      app: app3
   template:
       metadata:
         labels:
@@ -71,3 +69,6 @@ spec:
           image  : canislupus0/appthree:abaitta
           ports:
             - containerPort: 8082
+  selector:
+    matchLabels:
+      app: app3

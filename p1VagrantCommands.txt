@@ -12,4 +12,42 @@ Vagrant commands :
    vagrant resume managed machine that was prev suspended
    vagrant snapshot: manage VM snapshots.
    vagrant ssh: connect to the guest machine by SSH
-   
+Deployments Doc kubernetes: 
+deployments are managinga set of pods to run app workload
+* Deployment ensures that only a certain number of Pods are down
+* Deployment also ensures that only a certain number of Pods are
+  created above the desired number of Pods
+
+* 
+
+
+usualy onstateLESS apps!
+ * roll out : is the process of replacing the old pods by the new version
+one by one so the app staysavailable 
+most and required importnatn parts:
+
+
+* spec.selector :  define how the ReplicaSet find which pods to manage 
+specify the labels to match
+
+this labelsto matche are specifyed by spec.template 
+
+spec.template: sub fields:
+ - 
+
+ ** get replicatSets:  kubectl get rs
+ ** kubectl get pods --show-labels
+ ** kubectl rollout status deployment/nginx-deployment
+ ** kubectl describe deployments
+
+
+updating a Deployments:
+
+updating deployment do rollout if and only DEPLYMENTS.SPEC.TEMPLATE IS CHANGED
+
+WRITE A DEPLOYMENT SPEC:
+    - apiVErsion
+    - kind
+    - metadata
+    - spec
+
