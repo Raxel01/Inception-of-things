@@ -38,9 +38,3 @@ spec:
             name: appthreeservice
             port:
               number: 8082
-
-  defaultBackend:
-    service:
-      name: appthreeservice
-      port:
-        number: 8082
