@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-argo-app
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/Raxel01/abait-ta
+    targetRevision: HEAD
+    path: goapp
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: dev
+  syncPolicy:
+    automated:
+    # this ption helps  on undo changes made manually to cluster and only take changes of repo as reference
+     selfHeal: true
+    #  if anything is removed on the git rep it will be removed in cluster also
+     prune: true

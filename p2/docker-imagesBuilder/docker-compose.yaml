@@ -11,8 +11,8 @@ services:
       dockerfile: dockerfile.server 
     networks:
       - NetworkService
-    image: appthree:abaitta
-    container_name: appthreeAbaitta
+    image: apppartthree:V2
+    container_name: apppartthreeAbaitta
     volumes:
       - ./:/server
     restart: always

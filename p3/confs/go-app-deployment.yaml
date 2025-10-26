@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-app-deployment
+  namespace: dev
+  labels:
+    app: goapp
+
+spec:
+  replicas : 1
+  template:
+    metadata:
+      labels:
+       app: goapp
+    spec:
+      containers:
+      - name: app-go-container
+        image: canislupus0/apppartthree:V1
+        ports:
+          - containerPort: 8080
+  
+  selector:
+    matchLabels:
+      app: goapp
+  
