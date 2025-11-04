@@ -11,7 +11,7 @@ RECOMMENDED_CPU = 1
 CONTROLLER_IP = "192.168.56.110"
 
 Vagrant.configure("2") do |conf|
-  conf.vm.box = "bento/debian-13"
+  conf.vm.box = "bento/debian-13.0"
 
   conf.vm.define  "abait-taS" do |controller|
     controller.vm.hostname = "Server"
