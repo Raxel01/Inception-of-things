@@ -1,0 +1,94 @@
+global:
+  image:
+    pullPolicy: IfNotPresent
+  
+  edition: ce
+
+  gitlabVersion: "18.5.1"
+
+  hosts:
+    domain: local
+    https: false
+
+  ingress:
+    enabled: true
+    configureCertmanager: false
+    class: traefik
+    provider: traefik
+    pathType: Prefix
+    hosts:
+      - name: gitlab.local
+        path: /
+
+  ingressClass: traefik
+
+  minio:
+    enabled: false
+
+  appConfig:
+    lfs:
+      enabled: false
+    artifacts:
+      enabled: false
+    uploads:
+      enabled: false
+    packages:
+      enabled: false
+    backups:
+      cron:
+        enabled: false
+      bucket: gitlab-backups
+      tmpBucket: tmp
+  
+  kas:
+    enabled: false
+
+  registry:
+    enabled: false
+    bucket: registry
+
+  webservice:
+    workerTimeout: 60
+
+  serviceAccount:
+    enabled: false
+
+installCertmanager: false
+
+nginx-ingress:
+  enabled: false
+
+prometheus:
+  install: false
+
+redis:
+  metrics:
+    enabled: false
+
+postgresql:
+  metrics:
+    enabled: false
+
+registry:
+  enabled: false
+
+gitlab-runner:
+  install: false
+
+gitlab:
+  toolbox:
+    enabled: true
+    backups:
+      enabled: false
+      cron:
+        enabled: false
+      objectStorage:
+        enabled: false
+        backend: gcs
+        config: {}
+
+  gitlab-exporter:
+    enabled: false
+
+  gitlab-shell:
+    replicaCount: 1
